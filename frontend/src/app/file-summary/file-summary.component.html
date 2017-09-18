@@ -1,0 +1,24 @@
+<md-card>
+  <md-card-title>{{fileReport?.fileName}}</md-card-title>
+
+  <md-card-content>
+    <div layout layout-align="space-around center">
+      <div flex-grow>Total Records</div>
+      <div flex-initial class="mat-body-2">
+        {{fileReport?.allTransactionRowsCount}}
+      </div>
+    </div>
+    <div layout layout-align="space-around center">
+      <div flex-grow>Matching Records</div>
+      <div flex-initial class="mat-body-2">
+        {{fileReport?.allTransactionRowsCount - fileReport?.unmatchedTransactions?.length}}
+      </div>
+    </div>
+    <div layout layout-align="space-around center">
+      <div flex-grow>Unmatched Records</div>
+      <div flex-initial class="mat-body-2">
+        {{fileReport?.unmatchedTransactions?.length}}
+      </div>
+    </div>
+  </md-card-content>
+</md-card>

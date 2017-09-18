@@ -1,0 +1,28 @@
+<div layout layout-align="space-around center">
+
+  <md-form-field tdFileDrop
+                 [disabled]="disabled"
+                 (click)="disabled || fileInput.inputElement.click()"
+                 (fileDrop)="file = $event"
+                 flex-grow>
+    <input mdInput
+           #inputText
+           [disabled]="disabled"
+           [placeholder]="placeholder"
+           [value]="file?.name"
+           readonly/>
+  </md-form-field>
+
+  <span>
+    <button md-icon-button
+            [disabled]="disabled"
+            [style.visibility]="!file ? 'hidden' : ''"
+            (click)="clearFile()"
+            flex-initial>
+      <md-icon>cancel</md-icon>
+    </button>
+  </span>
+
+  <td-file-input #fileInput [(ngModel)]="file" (ngModelChange)="onFileChange($event)" hidden></td-file-input>
+
+</div>

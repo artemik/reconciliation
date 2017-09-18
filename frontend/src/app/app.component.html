@@ -1,0 +1,56 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1 class="mat-display-2">
+    Reconciliation
+  </h1>
+</div>
+
+<div class="slim-area">
+
+  <md-card>
+    <md-card-title>Input Files</md-card-title>
+    <md-card-subtitle>Select two CSV files for reconciliation</md-card-subtitle>
+
+    <md-card-content>
+      <md-grid-list cols="2" rowHeight="4em">
+        <md-grid-tile>
+          <app-file-input class="file-input" [disabled]="inProgress" [placeholder]="'First file'"
+                          [(file)]="firstFile"></app-file-input>
+        </md-grid-tile>
+        <md-grid-tile>
+          <app-file-input class="file-input" [disabled]="inProgress" [placeholder]="'Second file'"
+                          [(file)]="secondFile"></app-file-input>
+        </md-grid-tile>
+      </md-grid-list>
+    </md-card-content>
+  </md-card>
+
+  <div class="reconcile-button-area">
+    <button md-raised-button class="reconcile-button" color="primary" [disabled]="!firstFile || !secondFile"
+            [@tdFadeInOut]="!inProgress" (click)="runReconciliation()">RECONCILE
+    </button>
+    <md-spinner class="reconcile-spinner" [@tdFadeInOut]="inProgress"></md-spinner>
+  </div>
+
+  <md-card class="comparison-results" [@tdFadeInOut]="result != null">
+    <md-card-title>Comparison Results</md-card-title>
+
+    <md-card-content>
+      <md-grid-list cols="2" rowHeight="13em">
+        <md-grid-tile *ngFor="let report of result">
+          <app-file-summary [fileReport]="report"></app-file-summary>
+        </md-grid-tile>
+      </md-grid-list>
+    </md-card-content>
+  </md-card>
+
+</div>
+
+<md-card class="unmatched-reports" [@tdFadeInOut]="result != null">
+  <md-card-title>Unmatched Reports</md-card-title>
+  <md-card-content>
+    <div>
+      <app-file-reports [fileReports]="result"></app-file-reports>
+    </div>
+  </md-card-content>
+</md-card>

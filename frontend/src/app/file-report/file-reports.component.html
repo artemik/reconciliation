@@ -1,0 +1,21 @@
+<md-accordion>
+
+  <md-expansion-panel *ngFor="let fileReport of fileReports">
+
+    <md-expansion-panel-header>
+      <md-panel-title>
+        {{fileReport.fileName}}
+      </md-panel-title>
+      <md-panel-description>
+        Unmatched Report
+      </md-panel-description>
+    </md-expansion-panel-header>
+
+    <td-data-table
+      [columns]="columnsConfig"
+      [data]="fileReport.unmatchedTransactions">
+    </td-data-table>
+
+  </md-expansion-panel>
+
+</md-accordion>

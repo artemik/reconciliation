@@ -1,0 +1,43 @@
+.slim-area {
+  max-width: 600px;
+  margin: auto;
+}
+
+.file-input {
+  width: 100%;
+}
+
+.file-input:nth-child(odd) {
+  padding-right: 16px;
+}
+
+.reconcile-button-area {
+  margin-top: 24px;
+  width: 100%;
+  position: relative;
+  height: 2em
+}
+
+.reconcile-button {
+  width: 100%;
+  position: absolute;
+}
+
+.reconcile-spinner {
+  width: 100%;
+  height: 100%;
+}
+
+.comparison-results {
+  margin-top: 24px;
+}
+
+app-file-summary {
+  width: 100%;
+}
+
+.unmatched-reports {
+  max-width: 95%;
+  margin: auto;
+  margin-top: 24px;
+}

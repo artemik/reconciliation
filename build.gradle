@@ -1,0 +1,9 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+apply plugin: 'idea'
+
+wrapper.gradleVersion = '4.1'
