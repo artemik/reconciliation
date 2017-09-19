@@ -1,7 +1,7 @@
 # Reconciliation
 Transactions reconciliation application (Spring Boot + Angular).
 
-## Requirements:
+## Requirements
  - Java 1.8;
  - npm.
 
